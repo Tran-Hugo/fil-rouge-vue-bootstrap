@@ -1,4 +1,4 @@
-# projet-demo
+# Fil Rouge Vue Bootstrap
 
 ## Project setup
 ```
