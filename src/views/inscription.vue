@@ -36,8 +36,7 @@
                   </div>
                   <div class="mb-3 mx-2 px-4">
                     <label for="exampleFormControlInput1" class="form-label">Email</label>
-                    <input @input="testEmail" v-model="email" type="email" class="form-control email" v-bind:class="{'is-invalid' : errorEmail}" placeholder="Email">
-                    <!-- <p class="d-none error email">Veuillez entrer un email valide</p> -->
+                    <input @input="testEmail" v-model="email" type="email" class="form-control email" v-bind:class="{'is-invalid' : errorEmail}" placeholder="Email">              
                     <erreur v-if="emailInvalid" msg="Veuillez entrer un email valide"/>
                   </div>
                   <div class="mb-3 mx-2 px-4">
@@ -220,7 +219,12 @@ export default {
       // }
 
     }
-  }
+  },
+  // mounted: {
+  //   refresh: function(){
+  //     location.reload();
+  //   },
+  // }
 }
 </script>
 

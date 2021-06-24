@@ -1,51 +1,43 @@
 <template>
-  <!-- <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div> -->
   <header class="w-100">
       <div class="col-12 d-none d-lg-flex justify-content-end min-menu">
         <ul class="col-2 d-flex p-0 justify-content-around">
           <li>
-            <a href="pages/inscription.html">S'inscrire</a>
+            <router-link to="/inscription">S'inscrire</router-link>
           </li>
           <li>
-            <a href="#">Se connecter</a>
+            <router-link to="/connexion">Se connecter</router-link>
           </li>
         </ul>
       </div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light p-0">
-          <!-- <div class="col-lg-12 d-none d-lg-flex hidden">
-            <div class="col-4 d-flex">
-              <ul></ul>
-            </div>
-          </div> -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-nav p-0">
             <div class="container-fluid justify-content-around p-0">
               <button @click="toggleBarre = !toggleBarre" class="navbar-toggler col-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars burger"></i>
               </button>
-              <!-- <a class="navbar-brand col-8 col-lg-2 d-flex justify-content-center" href="#"> -->
+              
                 <router-link class="navbar-brand col-8 col-lg-2 d-flex justify-content-center" to="/">
                 <img src="@/assets/logo.svg" alt="logo.svg">
                 </router-link>
-                <!-- </a> -->
+                
               <div class="barre col-12 d-lg-none" v-bind:class="{ 'd-none' : toggleBarre}">
               </div>  
               <h1 class="d-none d-lg-block">La Notule</h1>
               <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                
+                 <!-- v-bind:class="{ 'show' : toggleCollapse}" -->
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-lg-none">
                   <li class="nav-item">
                     
-                      <router-link class="nav-link active" to="#">
-                      Se connecter
+                      <router-link class="nav-link active" to="/connexion">
+                      <span data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" @click="toggleBarre = !toggleBarre">Se connecter</span>
                       </router-link>
                       
                   </li>
                   <li class="nav-item">
                     <!-- <a class="nav-link" href="pages/inscription.html"> -->
-                    <router-link class="nav-link" to="/inscription">
-                    S'inscrire
+                    <router-link class="nav-link" to="/inscription" > 
+                    <!-- @click="toggleCollapse = !toggleCollapse" -->
+                   <span data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" @click="toggleBarre = !toggleBarre"> S'inscrire </span>
                     </router-link>
                     <!-- </a> -->
                   </li>
@@ -53,7 +45,8 @@
                     <a class="nav-link" href="#">Panier(0)</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">La Boutique</a>
+                    
+                      <router-link class="nav-link" to="/boutique" ><span data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" @click="toggleBarre = !toggleBarre">La Boutique</span></router-link>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">Contactez-nous</a>
@@ -73,6 +66,7 @@
                   <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search">
                   <button class="btn btn-outline-success" type="submit">Rechercher</button>
                 </form>
+                <div class="barre col-12 d-lg-none"></div>
               </div>
             </div>
           </nav>  
@@ -81,10 +75,14 @@
     <div class="barre2 col-12 d-none d-lg-flex justify-content-center">
       <ul class="d-none d-lg-flex justify-content-between p-0 w-75">
       <li class="nav-item">
-        <a class="nav-link" href="#">Accueil</a>
+        <router-link class="nav-link" to="/">
+        Accueil
+        </router-link>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">La Boutique</a>
+          <router-link class="nav-link" to="/boutique">
+          La Boutique
+          </router-link>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Contactez-nous</a>
@@ -115,7 +113,7 @@
         </ul>
         <div class="col-4 col-lg-2 d-flex flex-column justify-content-between">
           <a href="#" class="d-lg-none">retour en haut</a>
-          <div class="icone">
+          <div class="icone col-9 d-flex justify-content-around">
             <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
             <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
             <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
@@ -130,12 +128,15 @@ export default {
   data() {
     return {
       toggleBarre : false,
+      toggleCollapse : false,
     }
   },
   methods: {
     
   }
 }
+
+
 </script>
 
 <style>
@@ -189,6 +190,12 @@ header nav .container-fluid a img {
     height: 12vh;
     margin-bottom: 5%;
 }
+/* .nav-item {
+  padding-top: 5%;
+} */
+.bg-nav{
+  background-color: white!important;
+}
 
 .navbar-toggler {
     border: none !important;
@@ -216,6 +223,9 @@ header nav .container-fluid a img {
 .navbar-light .navbar-toggler {
     color: rgb(248 249 250) !important;
 }
+.nav-link:focus, .nav-link:hover {
+    color: salmon !important;;
+}
 
 footer {
     background-color: wheat;
@@ -238,7 +248,12 @@ footer .col-4 {
 .fab {
     font-size: 1.9em;
 }
-  
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active {
+    color: black !important;
+    background-color: wheat!important;
+    border-color: wheat!important;
+    } 
 
 
 @media screen and (min-width: 768px) {
@@ -275,7 +290,7 @@ footer .col-4 {
     }
 
     .min-menu {
-        background-color: #f8f9fa;
+        background-color: /*#f8f9fa*/white;
         height: 3vh;
     }
 
@@ -315,6 +330,7 @@ footer .col-4 {
         height: 5vh;
         width: 100%;
         background-color: wheat;
+        padding-bottom: 3%;
     }
 
     .barre2 ul {
