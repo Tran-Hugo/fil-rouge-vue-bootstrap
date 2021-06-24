@@ -28,53 +28,52 @@
               </nav>
               <h2>BD et Manga</h2>
               <div class="container-fluid mb-3 mt-3">
+                  <div class="container-fluid mb-3 mt-3">
                   <div class="row d-flex flex-row flex-nowrap overflow-scroll">
-                      <product-card class="col-9 col-md-5 col-lg-3" lien='op1' titre='Invincible' auteur='Oda Eiichiro' editeur='Kana' prix='10€'/>
-                      <product-card class="col-9 col-md-5 col-lg-3" titre="blabla"/>
-                      <product-card class="col-9 col-md-5 col-lg-3"/>
+                      <product-card v-for="(book,index) in books" :key="index" :titre="book.titre" :auteur="book.auteur" :editeur="book.editeur" :prix="book.prix" class="col-9 col-md-5 col-lg-3"/>
                   </div>
+              </div>
               </div>
               <h2>Jeunesse</h2>
               <div class="container-fluid mb-3 mt-3">
+                  <div class="container-fluid mb-3 mt-3">
                   <div class="row d-flex flex-row flex-nowrap overflow-scroll">
-                      <product-card class="col-9 col-md-5 col-lg-3" lien='op1' titre='Invincible' auteur='Oda Eiichiro' editeur='Kana' prix='10€'/>
-                      <product-card class="col-9 col-md-5 col-lg-3" titre="blabla"/>
-                      <product-card class="col-9 col-md-5 col-lg-3"/>
+                      <product-card v-for="(book,index) in books" :key="index" :titre="book.titre" :auteur="book.auteur" :editeur="book.editeur" :prix="book.prix" class="col-9 col-md-5 col-lg-3"/>
                   </div>
+              </div>
               </div>
               <h2>Policier et Thriller</h2>
               <div class="container-fluid mb-3 mt-3">
+                  <div class="container-fluid mb-3 mt-3">
                   <div class="row d-flex flex-row flex-nowrap overflow-scroll">
-                      <product-card class="col-9 col-md-5 col-lg-3" lien='op1' titre='Invincible' auteur='Oda Eiichiro' editeur='Kana' prix='10€'/>
-                      <product-card class="col-9 col-md-5 col-lg-3" titre="blabla"/>
-                      <product-card class="col-9 col-md-5 col-lg-3"/>
+                      <product-card v-for="(book,index) in books" :key="index" :titre="book.titre" :auteur="book.auteur" :editeur="book.editeur" :prix="book.prix" class="col-9 col-md-5 col-lg-3"/>
                   </div>
+              </div>
               </div>
               <h2>Biographie</h2>
               <div class="container-fluid mb-3 mt-3">
+                  <div class="container-fluid mb-3 mt-3">
                   <div class="row d-flex flex-row flex-nowrap overflow-scroll">
-                      <product-card class="col-9 col-md-5 col-lg-3" lien='op1' titre='Invincible' auteur='Oda Eiichiro' editeur='Kana' prix='10€'/>
-                      <product-card class="col-9 col-md-5 col-lg-3" titre="blabla"/>
-                      <product-card class="col-9 col-md-5 col-lg-3"/>
+                      <product-card v-for="(book,index) in books" :key="index" :titre="book.titre" :auteur="book.auteur" :editeur="book.editeur" :prix="book.prix" class="col-9 col-md-5 col-lg-3"/>
                   </div>
+              </div>
               </div>
               <h2>Littérature et Fiction</h2>
               <div class="container-fluid mb-3 mt-3">
+                 <div class="container-fluid mb-3 mt-3">
                   <div class="row d-flex flex-row flex-nowrap overflow-scroll">
-                      <product-card class="col-9 col-md-5 col-lg-3" lien='op1' titre='Invincible' auteur='Oda Eiichiro' editeur='Kana' prix='10€'/>
-                      <product-card class="col-9 col-md-5 col-lg-3" titre="blabla"/>
-                      <product-card class="col-9 col-md-5 col-lg-3"/>
+                      <product-card v-for="(book,index) in books" :key="index" :titre="book.titre" :auteur="book.auteur" :editeur="book.editeur" :prix="book.prix" class="col-9 col-md-5 col-lg-3"/>
                   </div>
+              </div>
               </div>
               <h2>SF et Fantasy</h2>
               <div class="container-fluid mb-3 mt-3">
+                  <div class="container-fluid mb-3 mt-3">
                   <div class="row d-flex flex-row flex-nowrap overflow-scroll">
-                      <product-card class="col-9 col-md-5 col-lg-3" lien='op1' titre='Invincible' auteur='Oda Eiichiro' editeur='Kana' prix='10€'/>
-                      <product-card class="col-9 col-md-5 col-lg-3" titre="blabla"/>
-                      <product-card class="col-9 col-md-5 col-lg-3"/>
+                      <product-card v-for="(book,index) in books" :key="index" :titre="book.titre" :auteur="book.auteur" :editeur="book.editeur" :prix="book.prix" class="col-9 col-md-5 col-lg-3"/>
                   </div>
               </div>
-
+              </div>
           </div>
       </main>
   </div>
@@ -86,6 +85,21 @@ export default {
     name:'boutique',
     components:{
         productCard,
+    },
+    data(){
+        return {
+            books:[
+                {
+                    lien:'op1', titre:'Invincible', auteur:'Oda Eiichiro', editeur:'Kana', prix:'10€',
+                },
+                {
+                    lien:'op1', titre:'Shingeki', auteur:'Hajime Isayama', editeur:'Kodansha', prix:'7.90€'
+                },
+                {
+                    lien:'op1', titre:'Blabla',
+                },
+            ],
+        }
     }
 }
 </script>

@@ -32,7 +32,7 @@ export default {
         auteur:String,
         editeur:String,
         prix:String,
-        
+        books:Array,
     },
     methods:{
         
